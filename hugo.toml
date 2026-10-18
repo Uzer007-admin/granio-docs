@@ -1,13 +1,13 @@
-baseURL = "https://apps.fyne.io"
-languageCode = "en"
-title = "Fyne Apps"
+baseURL = "/"
+languageCode = "ru"
+title = "Приложения Granio"
 theme = "blowfish"
-copyright = "Fyne.io"
+copyright = "Granio; исходные материалы Fyne.io"
 buildFuture = true
 enableRobotsTXT = true
 
 [params]
-  description = "Just some of the amazing apps created using Fyne"
+  description = "Каталог приложений независимой экосистемы Granio"
   mainSections = []
   colorScheme = "ocean"
   defaultAppearance = "dark"
@@ -54,7 +54,7 @@ enableRobotsTXT = true
 [menus]
   [[menus.main]]
     name = "Docs"
-    url = "https://docs.fyne.io"
+    url = "https://github.com/Uzer007-admin/granio-docs"
     weight = 10
   [[menus.main]]
     name = "Apps"
@@ -64,7 +64,7 @@ enableRobotsTXT = true
       highlight = true
   [[menus.main]]
     name = "Add-ons"
-    url = "https://addons.fyne.io"
+    url = "https://github.com/Uzer007-admin/granio-addons"
     weight = 30
   [[menus.main]]
     name = "Conference"
