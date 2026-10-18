@@ -1,13 +1,13 @@
-baseURL = "https://addons.fyne.io"
-languageCode = "en"
-title = "Fyne Add-ons"
+baseURL = "/"
+languageCode = "ru"
+title = "Расширения Granio"
 theme = "blowfish"
-copyright = "Fyne.io"
+copyright = "Granio; исходные материалы Fyne.io"
 buildFuture = true
 enableRobotsTXT = true
 
 [params]
-  description = "Add-on widgets and containers for the Fyne toolkit"
+  description = "Компоненты и расширения Granio"
   mainSections = []
   colorScheme = "ocean"
   defaultAppearance = "dark"
@@ -54,11 +54,11 @@ enableRobotsTXT = true
 [menus]
   [[menus.main]]
     name = "Docs"
-    url = "https://docs.fyne.io"
+    url = "https://github.com/Uzer007-admin/granio-docs"
     weight = 10
   [[menus.main]]
     name = "Apps"
-    url = "https://apps.fyne.io"
+    url = "https://github.com/Uzer007-admin/granio-catalog"
     weight = 20
   [[menus.main]]
     name = "Add-ons"
