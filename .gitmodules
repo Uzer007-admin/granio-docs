@@ -1,0 +1,6 @@
+[submodule "sites/catalog/themes/blowfish"]
+ path = sites/catalog/themes/blowfish
+ url = https://github.com/nunocoracao/blowfish
+[submodule "sites/addons/themes/blowfish"]
+ path = sites/addons/themes/blowfish
+ url = https://github.com/nunocoracao/blowfish

@@ -27,11 +27,10 @@ enableEmoji = true
   mono_font       = "Fira Code"
 
   [params.footer]
-    copyright = "© :YEAR: The Fyne.io community. Please consider [**sponsoring**](https://fyne.io/sponsor/) our work."
+    copyright = "© :YEAR: Granio. Исходные материалы: Fyne.io community."
 
   [params.social]
     github = "Uzer007-admin/granio-docs"
-    twitter = "fyne_io"
 
   [params.docs]
     darkMode = true

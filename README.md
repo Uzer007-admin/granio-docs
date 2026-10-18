@@ -1,60 +1,36 @@
-# granio-docs
+# Документация и каталоги Granio
 
-Компонент независимого проекта **Granio — Гранио**.
+Общий репозиторий документации и исходников каталогов экосистемы Granio.
 
-**Исходный репозиторий:** [docs.fyne.io](https://github.com/fyne-io/docs.fyne.io).
-**Цель форка:** Документация независимого проекта Granio.
+**Основной исходник:** https://github.com/fyne-io/docs.fyne.io.
+**Цель форка:** сопровождать документацию, каталог приложений и каталог расширений
+в одном репозитории с отдельными конфигурациями сайтов.
+Истории и сведения об исходных авторах сохранены; полный реестр —
+[SOURCES.json](SOURCES.json).
 
-История изменений, лицензии и сведения об исходных авторах сохранены.
-Go-модули переведены на собственные пути `github.com/Uzer007-admin/…`;
-минимальная версия Go — **1.27.1**. Ядро и общие API подключаются из
-[`granio/v2`](https://github.com/Uzer007-admin/granio).
+| Сайт | Исходники | Исходник |
+| --- | --- | --- |
+| Документация | корень репозитория | [docs.fyne.io](https://github.com/fyne-io/docs.fyne.io) |
+| Приложения | `sites/catalog` | [apps.fyne.io](https://github.com/fyne-io/apps.fyne.io) |
+| Расширения | `sites/addons` | [addons.fyne.io](https://github.com/fyne-io/addons.fyne.io) |
 
-Состояние переноса и результаты проверок приведены в
-[реестре экосистемы](https://github.com/Uzer007-admin/granio/blob/dev/granio/docs/ECOSYSTEM.md).
-Наличие форка само по себе не означает проверку всех платформ и сценариев.
+Начало работы:
 
----
-
-## Документация исходного проекта
-
-Команды установки и ссылки в сохранённом тексте ниже относятся к исходнику.
-Для Granio используются новые пути модулей, перечисленные выше.
-
-# docs.fyne.io Website
-
-This repository contains the source of the https://docs.fyne.io website.
-
-## Running the website locally
-
-The website uses [hugo](https://gohugo.io/) to generate the website from markdown files.
-
-### Install hugo
-Follow the steps at [https://gohugo.io/installation/]
-
-### Clone the Fyne docs repository
-```bash
-git clone https://github.com/fyne-io/docs.fyne.io.git
-```
-```bash
-cd docs.fyne.io
+```sh
+git clone --recurse-submodules --branch dev/granio https://github.com/Uzer007-admin/granio-docs.git
+cd granio-docs
 ```
 
-### Start the local webserver
-```bash
-hugo server -D
+Сайты используют Hugo; каталоги сохраняют собственные темы и ресурсы.
+Сборка из корня репозитория:
+
+```sh
+hugo --destination public/docs
+hugo --source sites/catalog --destination ../../public/catalog
+hugo --source sites/addons --destination ../../public/addons
 ```
 
-## Run generator scripts
-
-To generate new images etc. you can use the following commands:
-
-```bash
-cd _gen
-go run genwidgets.go # generate widget images
-go run genlayouts.go # generate layout images
-go run gendialogs.go # generate dialog images
-./genicons.sh # generate icon list html
-./genapi.sh # generate api documentation structure
-```
-
+Go-генераторы требуют Go 1.27.1+. Домен исходного проекта не подключается:
+первоначальные значения сохранены в `CNAME.upstream`.
+Развёртывание сайтов выполняется отдельно от проверки исходников.
+[Материалы исходного проекта](UPSTREAM.md).

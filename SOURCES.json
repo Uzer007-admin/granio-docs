@@ -1,0 +1,27 @@
+{
+  "base_source": "https://github.com/fyne-io/docs.fyne.io",
+  "sources": [
+    {
+      "source": "https://github.com/fyne-io/apps.fyne.io",
+      "prepared_commit": "1daf3632ff92152d2c6bc1b885a5c917af5b1a02",
+      "path": "sites/catalog",
+      "history_merged": true,
+      "previous_repository": null,
+      "previous_repository_deleted": false,
+      "module": null,
+      "separate_module": false,
+      "license_files": []
+    },
+    {
+      "source": "https://github.com/fyne-io/addons.fyne.io",
+      "prepared_commit": "b298944fa36a122d5b48877126fac69a29bd8df8",
+      "path": "sites/addons",
+      "history_merged": true,
+      "previous_repository": null,
+      "previous_repository_deleted": false,
+      "module": null,
+      "separate_module": false,
+      "license_files": []
+    }
+  ]
+}
