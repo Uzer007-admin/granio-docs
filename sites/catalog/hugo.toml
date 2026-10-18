@@ -1,0 +1,124 @@
+baseURL = "/"
+languageCode = "ru"
+title = "Приложения Granio"
+theme = "blowfish"
+copyright = "Granio; исходные материалы Fyne.io"
+buildFuture = true
+enableRobotsTXT = true
+
+[params]
+  description = "Каталог приложений независимой экосистемы Granio"
+  mainSections = []
+  colorScheme = "ocean"
+  defaultAppearance = "dark"
+  autoSwitchAppearance = false
+  enableSearch = false
+  showScrollToTop = true
+  showBreadcrumbs = false
+  updatedDays = 180
+
+  [params.homepage]
+    layout = "page"
+    showRecent = false
+
+  [params.article]
+    showDate = false
+    showAuthor = false
+    showBreadcrumbs = false
+    showTableOfContents = false
+    showRelatedContent = false
+    showTaxonomies = false
+    showWordCount = false
+    showEdit = false
+    showSummary = false
+    showPagination = false
+
+  [params.list]
+    showBreadcrumbs = false
+    showTableOfContents = false
+
+  [params.header]
+    layout = "fixed"
+
+  [params.footer]
+    showCopyright = true
+    showThemeAttribution = false
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+
+[menus]
+  [[menus.main]]
+    name = "Docs"
+    url = "https://github.com/Uzer007-admin/granio-docs"
+    weight = 10
+  [[menus.main]]
+    name = "Apps"
+    url = "/"
+    weight = 20
+    [menus.main.params]
+      highlight = true
+  [[menus.main]]
+    name = "Add-ons"
+    url = "https://github.com/Uzer007-admin/granio-addons"
+    weight = 30
+  [[menus.main]]
+    name = "Conference"
+    url = "https://conf.fyne.io"
+    weight = 40
+  [[menus.main]]
+    name = "Blog"
+    url = "https://fyne.io/blog"
+    weight = 50
+  [[menus.main]]
+    name = "Events"
+    url = "https://fyne.io/events"
+    weight = 60
+  [[menus.main]]
+    name = "Support"
+    url = "https://fyne.io/support"
+    weight = 70
+
+# App pages are migrating from the legacy /apps/<id>.html URL to the clean directory
+# URL /apps/<id>/. Each app builds two outputs (see content/apps/_index.md cascade):
+#   AppPage     -> /apps/<id>/        the canonical full page (listed first, so it
+#                                      drives .Permalink and the <link canonical>)
+#   AppRedirect -> /apps/<id>.html    a meta-refresh stub redirecting to the canonical
+# uglyURLs makes AppRedirect emit the legacy .html path; AppPage opts back out via noUgly.
+[uglyURLs]
+  apps = true
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediaType = "application/rss+xml"
+    baseName = "feed"
+    isPlainText = true
+
+  # Canonical app page at the clean directory URL /apps/<id>/.
+  [outputFormats.AppPage]
+    mediaType = "text/html"
+    noUgly = true
+    notAlternative = true
+
+  # Legacy /apps/<id>.html path, rendered as a redirect stub (layouts/apps/single.appredirect.html).
+  [outputFormats.AppRedirect]
+    mediaType = "text/html"
+    notAlternative = true
+
+  [outputFormats.APIJSON]
+    mediaType = "application/json"
+    baseName = "list"
+    isPlainText = true
+
+  [outputFormats.FeaturedJSON]
+    mediaType = "application/json"
+    baseName = "featured"
+    isPlainText = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
