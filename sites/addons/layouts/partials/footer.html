@@ -1,0 +1,56 @@
+<style>
+  #site-footer {
+    padding: 0 0 1rem 0;
+    min-height: 4.5rem;
+    display: flex;
+    align-items: center;
+  }
+  #site-footer .footer-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  #site-footer .footer-row p {
+    margin: 0;
+  }
+  #site-footer .footer-center {
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    #site-footer {
+      padding-top: 1rem;
+    }
+    #site-footer .footer-row {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    #site-footer .footer-row p {
+      text-align: center;
+    }
+    #site-footer .footer-center {
+      order: -1;
+    }
+  }
+</style>
+<footer id="site-footer" class="print:hidden">
+  <div class="footer-row">
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy; {{ now.Format "2006" }} {{ .Site.Copyright | markdownify }}
+    </p>
+    <p class="footer-center text-sm text-neutral-500 dark:text-neutral-400">
+      If you like the Fyne toolkit please consider
+      <a href="https://fyne.io/sponsor/" class="hover:underline hover:text-primary-500">sponsoring</a> our work.
+    </p>
+  </div>
+</footer>
+<script src="/assets/js/search.js" type="text/javascript"></script>
+<script type="text/javascript">
+  superSearch({
+    searchFile: '/feed.xml',
+    searchSelector: '#js-search',
+    inputSelector: '#js-search__input',
+    resultsSelector: '#js-search__results'
+  });
+</script>

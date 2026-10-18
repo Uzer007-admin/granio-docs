@@ -1,0 +1,26 @@
+{{- $addonlist := .addonlist -}}
+{{- $limit := .limit | default 0 -}}
+<div class="max-w-5xl mx-auto px-4">
+  <div class="addons-grid">
+  {{- $i := 0 -}}
+  {{- range $addonlist -}}
+    {{- if .Params.disabled -}}
+      {{- continue -}}
+    {{- end -}}
+    {{- $i = add $i 1 -}}
+    {{- if and (gt $limit 0) (gt $i $limit) -}}
+      {{- break -}}
+    {{- end -}}
+    <a href="{{ .RelPermalink }}" class="addon-card">
+      {{ if .Params.icon }}
+      <div class="addon-card-image" style="background-image: url({{ .Params.icon }});"></div>
+      {{ end }}
+      <div class="addon-card-text">
+        <span class="text-xs uppercase tracking-wide" style="color: rgba(255,255,255,0.6);">{{ .Params.category }}</span>
+        <h5 class="text-lg font-semibold mt-1 text-white">{{ .Title }}</h5>
+        <p class="text-sm mt-1" style="color: rgba(255,255,255,0.7);">{{ .Params.excerpt }}</p>
+      </div>
+    </a>
+  {{- end -}}
+  </div>
+</div>
