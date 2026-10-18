@@ -1,6 +1,6 @@
-module github.com/fyne-io/docs
+module github.com/Uzer007-admin/granio-docs
 
-go 1.23.0
+go 1.27.1
 
 require (
 	github.com/colinwilson/lotusdocs v0.2.0 // indirect

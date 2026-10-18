@@ -1,6 +1,6 @@
-baseURL = 'https://docs.fyne.io/'
+baseURL = '/'
 languageCode = 'en-us'
-title = 'Fyne Documentation'
+title = 'Документация Granio'
 enableEmoji = true
 
 [markup]
@@ -30,13 +30,13 @@ enableEmoji = true
     copyright = "© :YEAR: The Fyne.io community. Please consider [**sponsoring**](https://fyne.io/sponsor/) our work."
 
   [params.social]
-    github = "fyne-io/docs.fyne.io"
+    github = "Uzer007-admin/granio-docs"
     twitter = "fyne_io"
 
   [params.docs]
     darkMode = true
     sidebarIcons = true
-    logoLinkURL = "https://fyne.io/"
+    logoLinkURL = "https://github.com/Uzer007-admin/granio"
     prism = true
     prismTheme = "lotusdocs"
 

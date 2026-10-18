@@ -1,23 +1,22 @@
-module github.com/fyne-io/docs.fyne.io/gen
+module github.com/Uzer007-admin/granio-docs/_gen
 
-go 1.19
+go 1.27.1
 
 require (
 	codeberg.org/sdassow/atomic v1.2.1
-	fyne.io/fyne/v2 v2.7.5-0.20260601222406-4aa4c508747a
+	github.com/Uzer007-admin/granio/v2 v2.8.2-0.20261018000600-86cc66cfefa1
 )
 
 require (
-	github.com/FyshOS/fancyfs v0.0.0-20251025194026-1f03098ff624 // indirect
+	github.com/Uzer007-admin/dbus/v5 v5.3.0 // indirect
+	github.com/Uzer007-admin/gl v0.0.0-20261017234122-3756695c6558 // indirect
+	github.com/Uzer007-admin/granio-gl-js v0.2.1-0.20261017234923-9e3b07127717 // indirect
+	github.com/Uzer007-admin/granio-oksvg v0.2.1-0.20261017234852-ddb3049db67c // indirect
 	github.com/anthonynsimon/bild v0.13.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fredbi/uri v1.1.1 // indirect
-	github.com/fyne-io/gl-js v0.2.1-0.20260315212741-029c47fd27e8 // indirect
-	github.com/fyne-io/oksvg v0.2.0 // indirect
-	github.com/go-gl/gl v0.0.0-20231021071112-07e5d0ea2e71 // indirect
 	github.com/go-text/render v0.2.1 // indirect
 	github.com/go-text/typesetting v0.3.4 // indirect
-	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/hack-pad/go-indexeddb v0.3.2 // indirect
 	github.com/hack-pad/safejs v0.1.0 // indirect
 	github.com/jeandeaual/go-locale v0.0.0-20250612000132-0ef82f21eade // indirect
@@ -36,5 +35,3 @@ require (
 	golang.org/x/text v0.22.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace fyne.io/fyne/v2 => ../../fyne/

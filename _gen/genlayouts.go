@@ -6,16 +6,16 @@ import (
 	"os"
 	"path/filepath"
 
-	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/canvas"
-	"fyne.io/fyne/v2/layout"
-	"fyne.io/fyne/v2/test"
-	"fyne.io/fyne/v2/theme"
+	"github.com/Uzer007-admin/granio/v2"
+	"github.com/Uzer007-admin/granio/v2/canvas"
+	"github.com/Uzer007-admin/granio/v2/layout"
+	"github.com/Uzer007-admin/granio/v2/test"
+	"github.com/Uzer007-admin/granio/v2/theme"
 )
 
 type drawItem struct {
 	name string
-	lay  fyne.CanvasObject
+	lay  granio.CanvasObject
 }
 
 var (
@@ -34,63 +34,63 @@ func boxColor() color.Color {
 
 func makeDrawList() []drawItem {
 	bObjs := makeObjs()
-	border := fyne.NewContainerWithLayout(layout.NewBorderLayout(bObjs[0], nil, bObjs[1], nil), bObjs...)
+	border := granio.NewContainerWithLayout(layout.NewBorderLayout(bObjs[0], nil, bObjs[1], nil), bObjs...)
 
 	smaller := makeObjs()
 	for _, s := range smaller {
-		s.(*canvas.Rectangle).SetMinSize(fyne.NewSize(s.MinSize().Width, 25))
+		s.(*canvas.Rectangle).SetMinSize(granio.NewSize(s.MinSize().Width, 25))
 	}
-	top := fyne.NewContainerWithLayout(layout.NewHBoxLayout(), smaller...)
-	left := fyne.NewContainerWithLayout(layout.NewVBoxLayout(), makeObjs()...)
-	content := fyne.NewContainerWithLayout(layout.NewGridWrapLayout(fyne.NewSize(40, 40)), makeObjs()...)
-	combined := fyne.NewContainerWithLayout(layout.NewBorderLayout(top, nil, left, nil), top, left, content)
+	top := granio.NewContainerWithLayout(layout.NewHBoxLayout(), smaller...)
+	left := granio.NewContainerWithLayout(layout.NewVBoxLayout(), makeObjs()...)
+	content := granio.NewContainerWithLayout(layout.NewGridWrapLayout(granio.NewSize(40, 40)), makeObjs()...)
+	combined := granio.NewContainerWithLayout(layout.NewBorderLayout(top, nil, left, nil), top, left, content)
 
 	return []drawItem{
-		{"hbox", fyne.NewContainerWithLayout(layout.NewHBoxLayout(), makeObjs()...)},
-		{"vbox", fyne.NewContainerWithLayout(layout.NewVBoxLayout(), makeObjs()...)},
+		{"hbox", granio.NewContainerWithLayout(layout.NewHBoxLayout(), makeObjs()...)},
+		{"vbox", granio.NewContainerWithLayout(layout.NewVBoxLayout(), makeObjs()...)},
 		{"border", border},
-		{"center", fyne.NewContainerWithLayout(layout.NewCenterLayout(), makeObjs()...)},
-		{"form", fyne.NewContainerWithLayout(layout.NewFormLayout(), append(makeObjs(), canvas.NewRectangle(boxColor()))...)},
-		{"grid", fyne.NewContainerWithLayout(layout.NewGridLayout(2), makeObjs()...)},
-		{"gridwrap", fyne.NewContainerWithLayout(layout.NewGridWrapLayout(fyne.NewSize(75, 75)), makeObjs()...)},
-		{"max", fyne.NewContainerWithLayout(layout.NewMaxLayout(), makeObjs()...)},
-		{"padded", fyne.NewContainerWithLayout(layout.NewPaddedLayout(), makeObjs()...)},
-		{"rowwrap", fyne.NewContainerWithLayout(layout.NewRowWrapLayout(), makeMoreObjs()...)},
-		{"custompadded", fyne.NewContainerWithLayout(layout.NewCustomPaddedLayout(10, 20, 30, 15), makeObjs()...)},
+		{"center", granio.NewContainerWithLayout(layout.NewCenterLayout(), makeObjs()...)},
+		{"form", granio.NewContainerWithLayout(layout.NewFormLayout(), append(makeObjs(), canvas.NewRectangle(boxColor()))...)},
+		{"grid", granio.NewContainerWithLayout(layout.NewGridLayout(2), makeObjs()...)},
+		{"gridwrap", granio.NewContainerWithLayout(layout.NewGridWrapLayout(granio.NewSize(75, 75)), makeObjs()...)},
+		{"max", granio.NewContainerWithLayout(layout.NewMaxLayout(), makeObjs()...)},
+		{"padded", granio.NewContainerWithLayout(layout.NewPaddedLayout(), makeObjs()...)},
+		{"rowwrap", granio.NewContainerWithLayout(layout.NewRowWrapLayout(), makeMoreObjs()...)},
+		{"custompadded", granio.NewContainerWithLayout(layout.NewCustomPaddedLayout(10, 20, 30, 15), makeObjs()...)},
 		{"combined", combined},
 	}
 }
 
-func makeObjs() []fyne.CanvasObject {
+func makeObjs() []granio.CanvasObject {
 	prop1 := canvas.NewRectangle(boxColor())
-	prop1.SetMinSize(fyne.NewSize(50, 50))
+	prop1.SetMinSize(granio.NewSize(50, 50))
 	prop2 := canvas.NewRectangle(boxColor())
-	prop2.SetMinSize(fyne.NewSize(25, 25))
+	prop2.SetMinSize(granio.NewSize(25, 25))
 	prop3 := canvas.NewRectangle(boxColor())
-	prop3.SetMinSize(fyne.NewSize(75, 75))
-	return []fyne.CanvasObject{prop1, prop2, prop3}
+	prop3.SetMinSize(granio.NewSize(75, 75))
+	return []granio.CanvasObject{prop1, prop2, prop3}
 }
 
-func makeMoreObjs() []fyne.CanvasObject {
+func makeMoreObjs() []granio.CanvasObject {
 	prop1 := canvas.NewRectangle(boxColor())
-	prop1.SetMinSize(fyne.NewSize(50, 50))
+	prop1.SetMinSize(granio.NewSize(50, 50))
 	prop2 := canvas.NewRectangle(boxColor())
-	prop2.SetMinSize(fyne.NewSize(100, 25))
+	prop2.SetMinSize(granio.NewSize(100, 25))
 	prop3 := canvas.NewRectangle(boxColor())
-	prop3.SetMinSize(fyne.NewSize(50, 75))
+	prop3.SetMinSize(granio.NewSize(50, 75))
 	prop4 := canvas.NewRectangle(boxColor())
-	prop4.SetMinSize(fyne.NewSize(75, 75))
-	return []fyne.CanvasObject{prop1, prop2, prop3, prop4}
+	prop4.SetMinSize(granio.NewSize(75, 75))
+	return []granio.CanvasObject{prop1, prop2, prop3, prop4}
 }
 
-func draw(scene fyne.CanvasObject, name string, c test.WindowlessCanvas, themeName string) {
+func draw(scene granio.CanvasObject, name string, c test.WindowlessCanvas, themeName string) {
 	fileName := filepath.Join(imgDir, name+"-"+themeName+".png")
 	file, err := os.Create(fileName)
 	if err != nil {
-		fyne.LogError("err", err)
+		granio.LogError("err", err)
 		file, err = os.Open(fileName)
 		if err != nil {
-			fyne.LogError("Unable to open file for writing", err)
+			granio.LogError("Unable to open file for writing", err)
 			return
 		}
 	}
@@ -98,11 +98,11 @@ func draw(scene fyne.CanvasObject, name string, c test.WindowlessCanvas, themeNa
 	c.SetScale(2.0) // get HiDPI output so we can render nicely on fancy screens :)
 	c.SetPadded(false)
 	c.SetContent(scene)
-	c.Resize(fyne.NewSize(220, 180))
+	c.Resize(granio.NewSize(220, 180))
 	img := c.Capture()
 	err = png.Encode(file, img)
 	if err != nil {
-		fyne.LogError("Unable to write image", err)
+		granio.LogError("Unable to write image", err)
 	}
 }
 
@@ -113,26 +113,26 @@ func main() {
 	pwd, _ := os.Getwd()
 	imgDir = filepath.Join(pwd, "..", "static", "images", "layouts")
 
-	fyne.CurrentApp().Settings().SetTheme(transparentBGTheme(theme.LightTheme()))
+	granio.CurrentApp().Settings().SetTheme(transparentBGTheme(theme.LightTheme()))
 	for _, item := range makeDrawList() {
 		draw(item.lay, item.name, c, "light")
 	}
 
-	fyne.CurrentApp().Settings().SetTheme(transparentBGTheme(theme.DarkTheme()))
+	granio.CurrentApp().Settings().SetTheme(transparentBGTheme(theme.DarkTheme()))
 	for _, item := range makeDrawList() {
 		draw(item.lay, item.name, c, "dark")
 	}
 }
 
 type transparent struct {
-	th fyne.Theme
+	th granio.Theme
 }
 
-func transparentBGTheme(th fyne.Theme) fyne.Theme {
+func transparentBGTheme(th granio.Theme) granio.Theme {
 	return &transparent{th: th}
 }
 
-func (t *transparent) Color(n fyne.ThemeColorName, v fyne.ThemeVariant) color.Color {
+func (t *transparent) Color(n granio.ThemeColorName, v granio.ThemeVariant) color.Color {
 	if n == theme.ColorNameBackground {
 		return color.Transparent
 	}
@@ -140,14 +140,14 @@ func (t *transparent) Color(n fyne.ThemeColorName, v fyne.ThemeVariant) color.Co
 	return t.th.Color(n, v)
 }
 
-func (t *transparent) Font(s fyne.TextStyle) fyne.Resource {
+func (t *transparent) Font(s granio.TextStyle) granio.Resource {
 	return t.th.Font(s)
 }
 
-func (t *transparent) Icon(n fyne.ThemeIconName) fyne.Resource {
+func (t *transparent) Icon(n granio.ThemeIconName) granio.Resource {
 	return t.th.Icon(n)
 }
 
-func (t *transparent) Size(n fyne.ThemeSizeName) float32 {
+func (t *transparent) Size(n granio.ThemeSizeName) float32 {
 	return t.th.Size(n)
 }
